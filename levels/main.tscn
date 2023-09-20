@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbvo86b7nxnio"]
+
+[ext_resource type="Script" path="res://levels/main.gd" id="1_6rp13"]
+[ext_resource type="PackedScene" uid="uid://bpeoxau27v6bm" path="res://characters/player.tscn" id="1_87xa3"]
+[ext_resource type="PackedScene" uid="uid://dsjbpv3ernb0l" path="res://objects/gem.tscn" id="2_p3pxt"]
+[ext_resource type="PackedScene" uid="uid://b766h6axuvgbl" path="res://objects/hud.tscn" id="4_5jmjv"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6rp13")
+
+[node name="Player" parent="." instance=ExtResource("1_87xa3")]
+position = Vector2(85, 83)
+
+[node name="Gem" parent="." instance=ExtResource("2_p3pxt")]
+position = Vector2(136, 86)
+
+[node name="HUD" parent="." instance=ExtResource("4_5jmjv")]
+
+[connection signal="player_died" from="Player" to="HUD" method="_on_player_player_died"]
